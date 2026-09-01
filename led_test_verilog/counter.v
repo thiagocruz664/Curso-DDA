@@ -4,7 +4,7 @@ module counter(i_sw, i_com_reset, o_count, i_reset, clock);
     input           i_reset;
     input           clock;
 
-    output          o_count;
+    output  [31:0]  o_count;
 
     reg     [31:0]  count;
     wire            sum;
@@ -14,8 +14,7 @@ module counter(i_sw, i_com_reset, o_count, i_reset, clock);
         .i_a(o_count),
         .i_b(1),
         .i_carry(0),
-        .o_sum(sum),
-        .*
+        .o_sum(sum)
     );
 
     always @(posedge clock) begin

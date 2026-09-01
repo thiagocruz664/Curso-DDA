@@ -8,6 +8,8 @@ module top(o_led, o_led_b, o_led_g, i_sw, i_reset, clock);
     input           clock;
 
     wire    [1:0]   valid;
+    reg     [3:0]   o_led_b;
+    reg     [3:0]   o_led_g;
 
     count u_count(
         .o_valid(valid[0]),
@@ -22,4 +24,14 @@ module top(o_led, o_led_b, o_led_g, i_sw, i_reset, clock);
         .i_reset(i_reset),
         .clock(clock)
     );
+
+    always @(posedge clock) begin
+        if (i_sw[3] == 'b0) begin
+            o_led_b <= o_led;
+            o_led_g <= o_led;
+        end else begin
+            o_led_b <= 4'b0;
+            o_led_g <= 4'b0;
+        end
+    end
 endmodule
