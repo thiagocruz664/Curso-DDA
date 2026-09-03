@@ -8,11 +8,11 @@ module rca(i_a, i_b, i_carry, o_sum, o_carry);
 
     wire    [32:0]   carry;
     assign  carry[0] = i_carry;
-    assign  carry[32] = o_carry;
+    assign  o_carry = carry[32];
 
     genvar i;
     generate
-        for (i=0; i<31; i=i+1) begin
+        for (i=0; i<32; i=i+1) begin
             fulladder u_fa(
                 .i_a(i_a[i]),
                 .i_b(i_b[i]),

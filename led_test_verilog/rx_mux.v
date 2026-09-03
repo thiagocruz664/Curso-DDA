@@ -4,10 +4,10 @@ module rx_mux (i_sw, o_mux);
     output  [31:0]  o_mux;
 
     reg     [31:0]  o_mux;
-    reg     [31:0]  r0;
-    reg     [31:0]  r1;
-    reg     [31:0]  r2;
-    reg     [31:0]  r3;
+    reg     [31:0]  r0 = 'b1;
+    reg     [31:0]  r1 = 'b1;
+    reg     [31:0]  r2 = 'b1;
+    reg     [31:0]  r3 = 'b1;
 
     always@(*) begin
         case (i_sw)
