@@ -25,7 +25,8 @@ module top(i_data1, i_data2, i_sel, i_rst_n, o_data, o_overflow, clock);
     );
 
     reg_retroalimentado #(
-        .NB_DATA        (NB_OUTPUTS)
+        .NB_DATA        (NB_OUTPUTS),
+        .NB_INPUT       (NB_INPUTS+1)
     ) u_rr (
         .i_data         (w_data_sel),
         .i_rst_n        (i_rst_n),
