@@ -10,7 +10,7 @@ module data_select(i_data1, i_data2, i_sel, o_data);
 
     wire    [NB_DATA : 0]       w_sum;
     wire    [NB_DATA : 0]       w_carry     =   {NB_DATA+1{1'b0}};
-    reg     [NB_DATA-1 : 0]     w_data;
+    reg     [NB_DATA-1 : 0]     r_data;
 
     wire    mux_i0  =   {1'b0, i_data2};
     wire    mux_i1  =   w_sum;
@@ -40,11 +40,11 @@ module data_select(i_data1, i_data2, i_sel, o_data);
 
     always @(*) begin
         case (i_sel)
-            2'b00 : w_data <= mux_i0;
-            2'b01 : w_data <= mux_i0;
-            2'b10 : w_data <= mux_i0;
+            2'b00 : r_data <= mux_i0;
+            2'b01 : r_data <= mux_i0;
+            2'b10 : r_data <= mux_i0;
         endcase
     end
 
-    assign o_data = w_data;
+    assign o_data = r_data;
 endmodule
