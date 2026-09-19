@@ -15,7 +15,7 @@ module reg_retroalimentado(i_data, i_rst_n, o_data, o_overflow, clock);
 
     assign w_sum = r_sum + {2'b00, i_data};
 
-    always @(posedge clock) begin
+    always @(posedge clock or negedge i_rst_n) begin
         if (i_rst_n) begin
             r_sum <= w_sum;
         end else begin
